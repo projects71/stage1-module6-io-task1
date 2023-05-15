@@ -19,7 +19,7 @@ public class Profile {
         try {
             readData();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ThrowException(e.getMessage());
         }
 
     }
@@ -35,21 +35,33 @@ public class Profile {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getAge() {
         return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getEmail() {
         return email;
     }
 
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Long getPhone() {
         return phone;
     }
 
-
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
 
     public void readData() throws IOException {
 
@@ -57,14 +69,18 @@ public class Profile {
         String[] sts = new String[4];
         int i = 0;
         BufferedReader reader = new BufferedReader(new FileReader(file));
-
+        try (InputStream inputStream = null) {
 
             while ((s = reader.readLine()) != null) {
                 String line = s.split(":")[1];
                 sts[i++] = line;
 
             }
-
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            reader.close();
+        }
 
 
         this.name = sts[0].substring(1);

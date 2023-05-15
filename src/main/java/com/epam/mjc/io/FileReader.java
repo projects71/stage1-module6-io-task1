@@ -8,10 +8,11 @@ import java.io.InputStream;
 public class FileReader {
 
     public Profile getDataFromFile(File file) {
+
         try(InputStream inputStream = null) {
 
         }catch (IOException e) {
-            System.out.println("null");
+            System.err.println("null");
         }
         return new Profile(file);
     }
