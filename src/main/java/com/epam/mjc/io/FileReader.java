@@ -9,8 +9,8 @@ public class FileReader {
 
     public Profile getDataFromFile(File file) {
 
-        try(BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
-            LOGGER.info(reader.readLine());
+        try(BufferedReader ignored = new BufferedReader(new java.io.FileReader(file))) {
+            LOGGER.info("check");
         }catch (IOException e) {
 
             LOGGER.info(e.getMessage());
