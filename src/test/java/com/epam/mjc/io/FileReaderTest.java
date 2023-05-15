@@ -77,7 +77,7 @@ public class FileReaderTest {
             return Files.readString(sourcePath);
         } catch (IOException e) {
 
-                throw new ThrowException(e.getMessage());
+                throw new MyOwnRuntimeException(e.getMessage());
 
         }
     }

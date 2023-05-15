@@ -19,7 +19,7 @@ public class Profile {
         try {
             readData();
         } catch (IOException e) {
-            throw new ThrowException(e.getMessage());
+            throw new MyOwnRuntimeException(e.getMessage());
         }
 
     }
