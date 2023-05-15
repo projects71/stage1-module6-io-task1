@@ -10,7 +10,7 @@ public class FileReader {
     public Profile getDataFromFile(File file) {
 
         try(BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
-            System.out.println(reader.readLine());
+            LOGGER.info(reader.readLine());
         }catch (IOException e) {
 
             LOGGER.info(e.getMessage());
