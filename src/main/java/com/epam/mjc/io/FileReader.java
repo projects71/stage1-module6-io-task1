@@ -14,7 +14,9 @@ public class FileReader {
         try(InputStream inputStream = null) {
 
         }catch (IOException e) {
+
             LOGGER.info(e.getMessage());
+            throw new MyOwnRuntimeException("My message");
         }
         return new Profile(file);
     }

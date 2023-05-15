@@ -77,7 +77,7 @@ public class Profile {
 
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new MyOwnRuntimeException("My message");
         } finally {
             reader.close();
         }
