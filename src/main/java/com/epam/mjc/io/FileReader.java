@@ -1,8 +1,6 @@
 package com.epam.mjc.io;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.logging.Logger;
 
 
@@ -11,8 +9,8 @@ public class FileReader {
 
     public Profile getDataFromFile(File file) {
 
-        try(InputStream inputStream = null) {
-
+        try(BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
+            System.out.println(reader.readLine());
         }catch (IOException e) {
 
             LOGGER.info(e.getMessage());
